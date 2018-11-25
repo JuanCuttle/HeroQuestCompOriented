@@ -1,6 +1,5 @@
-package InternalStructure;
+package InterfaceParts;
 
-import InterfaceParts.InterfaceGUINGProxy;
 import cip.InterfacePort;
 
 public class PortGUINGProxy extends InterfacePort implements InterfaceGUINGProxy {
@@ -10,7 +9,7 @@ public class PortGUINGProxy extends InterfacePort implements InterfaceGUINGProxy
 	@Override
 	public void initialize() {
 		// TODO Auto-generated method stub
-		
+		outbox = new PortGUINGProxyOutbox();
 	}
 
 }

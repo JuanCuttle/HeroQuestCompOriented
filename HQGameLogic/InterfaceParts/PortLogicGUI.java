@@ -1,116 +1,123 @@
-package InternalStructure;
+package InterfaceParts;
 
 import java.util.ArrayList;
 
+import cip.InterfacePort;
 import modelo.Creature;
 import modelo.Directions;
+import modelo.HeroQuest;
 import modelo.Position;
 import visao.AtorClientServer;
-import InterfaceParts.InterfaceLogicGUI;
-import cip.StandardPortOutbox;
 
-public class PortGUILogicOutbox extends StandardPortOutbox implements InterfaceLogicGUI {
+public class PortLogicGUI extends InterfacePort implements InterfaceLogicGUI {
 	
-	public PortLogicGUI portLogic;
-
+	private PortLogicGUIOutbox outbox;
+	private HeroQuest internalStructure;
+	
+	@Override
+	public void initialize() {
+		// TODO Auto-generated method stub
+		outbox = new PortLogicGUIOutbox();
+	}
+	
 	@Override
 	public void abrirPorta(int id) {
-		portLogic.abrirPorta(id);
+		internalStructure.abrirPorta(id);
 	}
 
 	@Override
 	public void abrirPortaTeclado() {
-		portLogic.abrirPortaTeclado();
+		internalStructure.abrirPortaTeclado();
 	}
 
 	@Override
 	public void movimentar(Directions direcao) {
-		portLogic.movimentar(direcao);
+		internalStructure.movimentar(direcao);
 	}
 
 	@Override
 	public Creature getCriaturaDaVez() {
-		return portLogic.getCriaturaDaVez();
+		return internalStructure.getCriaturaDaVez();
 	}
 
 	@Override
 	public void atacar() {
-		portLogic.atacar();
+		internalStructure.atacar();
 	}
 
 	@Override
 	public void usarMagia() {
-		portLogic.usarMagia();
+		internalStructure.usarMagia();
 	}
 
 	@Override
 	public ArrayList<Creature> getCreatureQueue() {
-		return portLogic.getCreatureQueue();
+		return internalStructure.getCreatureQueue();
 	}
 
 	@Override
 	public void procurarTesouro() {
-		portLogic.procurarTesouro();
+		internalStructure.procurarTesouro();
 	}
 
 	@Override
 	public void selecionarPersonagem() {
-		portLogic.selecionarPersonagem();
+		internalStructure.selecionarPersonagem();
 	}
 
 	@Override
 	public void selecionarPersonagemEscolhida(int resultado) {
-		portLogic.selecionarPersonagemEscolhida(resultado);
+		internalStructure.selecionarPersonagemEscolhida(resultado);
 	}
 
 	@Override
 	public void procurarArmadilhaOuPortaSecreta() {
-		portLogic.procurarArmadilhaOuPortaSecreta();
+		internalStructure.procurarArmadilhaOuPortaSecreta();
 	}
 
 	@Override
 	public void finalizarjogada() {
-		portLogic.finalizarjogada();
+		internalStructure.finalizarJogada();
 	}
 
 	@Override
 	public boolean informarConectado() {
-		return portLogic.informarConectado();
+		return internalStructure.informarConectado();
 	}
 
 	@Override
 	public void estabelecerConectado(boolean valor) {
-		portLogic.estabelecerConectado(valor);
+		internalStructure.estabelecerConectado(valor);
 	}
 
 	@Override
 	public boolean informarEmAndamento() {
-		return portLogic.informarEmAndamento();
+		return internalStructure.informarEmAndamento();
 	}
 
 	@Override
 	public void mostrarInventario() {
-		portLogic.mostrarInventario();
+		internalStructure.mostrarInventario();
 	}
 
 	@Override
 	public void mostrarInformacoes(int creatureID) {
-		portLogic.mostrarInformacoes(creatureID);
+		internalStructure.mostrarInformacoes(creatureID);
 	}
 
 	@Override
 	public Position getPosition(byte i, byte j) {
-		return portLogic.getPosition(i, j);
+		return internalStructure.getPosition(i, j);
 	}
 
 	@Override
 	public void setNomeLocalPlayerAndServer(String idUsuario, String idServer) {
-		portLogic.setNomeLocalPlayerAndServer(idUsuario, idServer);
+		internalStructure.setNomeLocalPlayerAndServer(idUsuario, idServer);
 	}
 
 	@Override
 	public AtorClientServer getAtorClienteServidor() {
-		return portLogic.getAtorClienteServidor();
+		return internalStructure.getAtorClienteServidor();
 	}
 
 	@Override

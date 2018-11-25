@@ -1,8 +1,7 @@
-package InternalStructure;
+package InterfaceParts;
 
 import modelo.HeroQuest;
 import modelo.Lance;
-import InterfaceParts.InterfaceLogicClientServer;
 import cip.InterfacePort;
 
 public class PortLogicClientServer extends InterfacePort implements InterfaceLogicClientServer {
@@ -13,7 +12,7 @@ public class PortLogicClientServer extends InterfacePort implements InterfaceLog
 	@Override
 	public void initialize() {
 		// TODO Auto-generated method stub
-		
+		outbox = new PortEnviarJogadaLogicNGProxyOutbox();
 	}
 
 	@Override

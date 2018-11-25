@@ -1,4 +1,4 @@
-package InternalStructure;
+package InterfaceParts;
 
 import java.util.ArrayList;
 
@@ -6,13 +6,18 @@ import modelo.Creature;
 import modelo.Spell;
 import modelo.Status;
 import visao.AtorJogador;
-import InterfaceParts.InterfaceGUI;
 import cip.InterfacePort;
 
 public class PortGUILogic extends InterfacePort implements InterfaceGUI {
 	
 	private PortGUILogicOutbox outbox;
 	private AtorJogador internalStructure;
+	
+	@Override
+	public void initialize() {
+		// TODO Auto-generated method stub
+		outbox = new PortGUILogicOutbox();
+	}
 
 	@Override
 	public void mostrarMensagem(String msg) {
@@ -119,12 +124,6 @@ public class PortGUILogic extends InterfacePort implements InterfaceGUI {
 	@Override
 	public byte mostrarOpcoesPit() {
 		return internalStructure.mostrarOpcoesPit();
-	}
-
-	@Override
-	public void initialize() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

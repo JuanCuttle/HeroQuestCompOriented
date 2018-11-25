@@ -1,7 +1,7 @@
-package InternalStructure;
+package InterfaceParts;
 
 import modelo.Lance;
-import InterfaceParts.LogicInterfaceClientServer;
+import InterfaceParts.PortLogicClientServer;
 import cip.StandardPortOutbox;
 
 public class PortEnviarJogadaNGProxyLogicOutbox extends StandardPortOutbox implements LogicInterfaceClientServer {
@@ -20,7 +20,7 @@ public class PortEnviarJogadaNGProxyLogicOutbox extends StandardPortOutbox imple
 
 	@Override
 	public void iniciarNovaPartida(int posicao) {
-		portLogic.iniciarNovaPartida();
+		portLogic.iniciarNovaPartida(posicao);
 	}
 
 	

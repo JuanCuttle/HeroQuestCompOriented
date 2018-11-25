@@ -1,8 +1,7 @@
-package InternalStructure;
+package InterfaceParts;
 
 import visao.AtorClientServer;
 import cip.InterfacePort;
-import InterfaceParts.NetgamesProxyInterface;
 
 public class PortNGProxyGUI extends InterfacePort implements NetgamesProxyInterface {
 	

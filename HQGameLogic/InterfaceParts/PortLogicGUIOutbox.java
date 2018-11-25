@@ -1,4 +1,4 @@
-package InternalStructure;
+package InterfaceParts;
 
 import java.util.ArrayList;
 

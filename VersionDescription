@@ -56,3 +56,5 @@ Can be troublesome with Creature objects (change not made through ID)
 22)Created new structure for components.
    Next steps: Change AtorClientServer to call PortNGProxyNGServer.outbox.method(), instead of Proxy.method
 			   Modify internal code and implement initialize() methods
+			   
+23) Initialize methods implemented

@@ -1,4 +1,4 @@
-package InternalStructure;
+package InterfaceParts;
 
 import modelo.Lance;
 import br.ufsc.inf.leobr.cliente.Proxy;

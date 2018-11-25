@@ -1,8 +1,7 @@
-package InternalStructure;
+package InterfaceParts;
 
 import visao.AtorClientServer;
 import br.ufsc.inf.leobr.cliente.Jogada;
-import InterfaceParts.NetgamesProxyNGServer;
 import cip.InterfacePort;
 
 public class PortNGProxyNGServer extends InterfacePort implements NetgamesProxyNGServer {
@@ -13,7 +12,7 @@ public class PortNGProxyNGServer extends InterfacePort implements NetgamesProxyN
 	@Override
 	public void initialize() {
 		// TODO Auto-generated method stub
-		
+		outbox = new PortNGProxyNGServerOutbox();
 	}
 
 	@Override

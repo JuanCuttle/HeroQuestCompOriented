@@ -1,6 +1,7 @@
-package InternalStructure;
+package InterfaceParts;
 
 import InterfaceParts.NetgamesProxyInterface;
+import InterfaceParts.PortNGProxyGUI;
 import cip.StandardPortOutbox;
 
 public class PortGUINGProxyOutbox extends StandardPortOutbox implements NetgamesProxyInterface {

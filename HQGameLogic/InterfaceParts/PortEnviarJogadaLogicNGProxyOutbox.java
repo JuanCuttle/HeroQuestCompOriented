@@ -1,4 +1,4 @@
-package InternalStructure;
+package InterfaceParts;
 
 import modelo.Lance;
 import cip.StandardPortOutbox;
