@@ -6,6 +6,8 @@ import cip.InterfacePort;
 
 public class PortLogicClientServer extends InterfacePort implements InterfaceLogicClientServer {
 
+	private PortEnviarJogadaLogicNGProxyOutbox outbox;
+	
 	@Override
 	public void initialize() {
 		// TODO Auto-generated method stub

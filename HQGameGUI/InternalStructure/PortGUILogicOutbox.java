@@ -2,24 +2,15 @@ package InternalStructure;
 
 import java.util.ArrayList;
 
-import cip.InterfacePort;
 import modelo.Creature;
 import modelo.Directions;
 import modelo.Position;
 import visao.AtorClientServer;
 import InterfaceParts.InterfaceLogicGUI;
+import cip.StandardPortOutbox;
 
-public class PortLogicGUI extends InterfacePort implements InterfaceLogicGUI {
-	
-	private PortLogicGUIOutbox outbox;
+public class PortGUILogicOutbox extends StandardPortOutbox implements InterfaceLogicGUI {
 
-	
-	@Override
-	public void initialize() {
-		// TODO Auto-generated method stub
-		
-	}
-	
 	@Override
 	public void abrirPorta(int id) {
 		// TODO Auto-generated method stub
