@@ -5,23 +5,22 @@ import InterfaceParts.LogicInterfaceClientServer;
 import cip.StandardPortOutbox;
 
 public class PortEnviarJogadaNGProxyLogicOutbox extends StandardPortOutbox implements LogicInterfaceClientServer {
+	
+	public PortLogicClientServer portLogic;
 
 	@Override
 	public void tratarLance(Lance lance) {
-		// TODO Auto-generated method stub
-		
+		portLogic.tratarLance(lance);
 	}
 
 	@Override
 	public void finalizarJogo() {
-		// TODO Auto-generated method stub
-		
+		portLogic.finalizarJogo();
 	}
 
 	@Override
 	public void iniciarNovaPartida(int posicao) {
-		// TODO Auto-generated method stub
-		
+		portLogic.iniciarNovaPartida();
 	}
 
 	

@@ -46,3 +46,13 @@ Can be troublesome with Creature objects (change not made through ID)
 	fixed bound checking in search for treasure and traps
 	
 21) Need to fix verificaSeJogadorDaVez() and player queue (GUI)
+-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+
+22)Created new structure for components.
+   Next steps: Change AtorClientServer to call PortNGProxyNGServer.outbox.method(), instead of Proxy.method
+			   Modify internal code and implement initialize() methods

@@ -1,5 +1,6 @@
 package InternalStructure;
 
+import visao.AtorClientServer;
 import br.ufsc.inf.leobr.cliente.Jogada;
 import InterfaceParts.NetgamesProxyNGServer;
 import cip.InterfacePort;
@@ -7,6 +8,7 @@ import cip.InterfacePort;
 public class PortNGProxyNGServer extends InterfacePort implements NetgamesProxyNGServer {
 
 	private PortNGProxyNGServerOutbox outbox;
+	private AtorClientServer internalStructure;
 	
 	@Override
 	public void initialize() {
@@ -16,38 +18,32 @@ public class PortNGProxyNGServer extends InterfacePort implements NetgamesProxyN
 
 	@Override
 	public void finalizarPartidaComErro(String message) {
-		// TODO Auto-generated method stub
-		
+		internalStructure.finalizarPartidaComErro(message);
 	}
 
 	@Override
 	public void iniciarNovaPartida(int posicao) {
-		// TODO Auto-generated method stub
-		
+		internalStructure.iniciarNovaPartida(posicao);
 	}
 
 	@Override
 	public void receberJogada(Jogada jogada) {
-		// TODO Auto-generated method stub
-		
+		internalStructure.receberJogada(jogada);
 	}
 
 	@Override
 	public void receberMensagem(String msg) {
-		// TODO Auto-generated method stub
-		
+		internalStructure.receberMensagem(msg);
 	}
 
 	@Override
 	public void tratarConexaoPerdida() {
-		// TODO Auto-generated method stub
-		
+		internalStructure.tratarConexaoPerdida();
 	}
 
 	@Override
 	public void tratarPartidaNaoIniciada(String message) {
-		// TODO Auto-generated method stub
-		
+		internalStructure.tratarPartidaNaoIniciada(message);
 	}
 	
 	

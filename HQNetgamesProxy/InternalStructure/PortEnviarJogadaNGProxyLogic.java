@@ -1,5 +1,6 @@
 package InternalStructure;
 
+import visao.AtorClientServer;
 import modelo.Lance;
 import InterfaceParts.EnviarJogadaNGProxyInterface;
 import cip.InterfacePort;
@@ -7,6 +8,7 @@ import cip.InterfacePort;
 public class PortEnviarJogadaNGProxyLogic extends InterfacePort implements EnviarJogadaNGProxyInterface{
 
 	private PortEnviarJogadaNGProxyLogicOutbox outbox;
+	private AtorClientServer internalStructure;
 	
 	@Override
 	public void initialize() {
@@ -16,8 +18,7 @@ public class PortEnviarJogadaNGProxyLogic extends InterfacePort implements Envia
 
 	@Override
 	public void enviarJogada(Lance lance) {
-		// TODO Auto-generated method stub
-		
+		internalStructure.enviarJogada(lance);
 	}
 
 }

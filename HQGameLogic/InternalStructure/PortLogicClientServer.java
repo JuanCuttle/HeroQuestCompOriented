@@ -1,5 +1,6 @@
 package InternalStructure;
 
+import modelo.HeroQuest;
 import modelo.Lance;
 import InterfaceParts.InterfaceLogicClientServer;
 import cip.InterfacePort;
@@ -7,6 +8,7 @@ import cip.InterfacePort;
 public class PortLogicClientServer extends InterfacePort implements InterfaceLogicClientServer {
 
 	private PortEnviarJogadaLogicNGProxyOutbox outbox;
+	private HeroQuest internalStructure;
 	
 	@Override
 	public void initialize() {
@@ -16,20 +18,17 @@ public class PortLogicClientServer extends InterfacePort implements InterfaceLog
 
 	@Override
 	public void tratarLance(Lance lance) {
-		// TODO Auto-generated method stub
-		
+		internalStructure.tratarLance(lance);
 	}
 
 	@Override
 	public void finalizarJogo() {
-		// TODO Auto-generated method stub
-		
+		internalStructure.finalizarJogo();
 	}
 
 	@Override
-	public void iniciarNovaPartida() {
-		// TODO Auto-generated method stub
-		
+	public void iniciarNovaPartida(int posicao) {
+		internalStructure.iniciarNovaPartida(posicao);
 	}
 
 }

@@ -7,5 +7,6 @@ public interface InterfaceLogicClientServer {
 	
 	public void finalizarJogo();
 	
-	public void iniciarNovaPartida();
+	public void iniciarNovaPartida(int posicao);
+
 }

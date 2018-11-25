@@ -8,134 +8,115 @@ import modelo.Status;
 import InterfaceParts.InterfaceGUI;
 import cip.StandardPortOutbox;
 
-public class PortLogicGUIOutbox extends StandardPortOutbox implements InterfaceGUI{
+public class PortLogicGUIOutbox extends StandardPortOutbox implements InterfaceGUI {
+	
+	public PortGUILogic portGUI;
 
 	@Override
 	public void mostrarMensagem(String msg) {
-		// TODO Auto-generated method stub
-		
+		portGUI.mostrarMensagem(msg);
 	}
 
 	@Override
 	public void reportarErro(String msg) {
-		// TODO Auto-generated method stub
-		
+		portGUI.reportarErro(msg);
 	}
 
 	@Override
 	public Spell selecionarMagia(ArrayList<Spell> magiasDisponiveis) {
-		// TODO Auto-generated method stub
-		return null;
+		return portGUI.selecionarMagia(magiasDisponiveis);
 	}
 
 	@Override
 	public Creature selecionarAlvo(ArrayList<Creature> possiveisAlvos) {
-		// TODO Auto-generated method stub
-		return null;
+		return portGUI.selecionarAlvo(possiveisAlvos);
 	}
 
 	@Override
 	public void atualizarInterfaceGrafica() {
-		// TODO Auto-generated method stub
-		
+		portGUI.atualizarInterfaceGrafica();
 	}
 
 	@Override
 	public void mostrarOsCincoPersonagens() {
-		// TODO Auto-generated method stub
-		
+		portGUI.mostrarOsCincoPersonagens();
 	}
 
 	@Override
 	public void anunciarVitoriaDosJogadores() {
-		// TODO Auto-generated method stub
-		
+		portGUI.anunciarVitoriaDosJogadores();
 	}
 
 	@Override
 	public void anunciarVitoriaDoZargon() {
-		// TODO Auto-generated method stub
-		
+		portGUI.anunciarVitoriaDoZargon();
 	}
 
 	@Override
 	public void mostrarInventario(int gold) {
-		// TODO Auto-generated method stub
-		
+		portGUI.mostrarInventario(gold);
 	}
 
 	@Override
 	public void mostrarInformacoes(byte body, byte mind, byte movement,
 			Status status, int linha, int coluna, Byte roundsToSleep) {
-		// TODO Auto-generated method stub
-		
+		portGUI.mostrarInformacoes(body, mind, movement, status, linha, coluna, roundsToSleep);
 	}
 
 	@Override
 	public void exibirCriaturas() {
-		// TODO Auto-generated method stub
-		
+		portGUI.exibirCriaturas();
 	}
 
 	@Override
 	public void mostrarAcaoTrap(byte dano, Creature criatura) {
-		// TODO Auto-generated method stub
-		
+		portGUI.mostrarAcaoTrap(dano, criatura);
 	}
 
 	@Override
 	public void mostrarDano(Creature alvo, byte dano, boolean seAtacou) {
-		// TODO Auto-generated method stub
-		
+		portGUI.mostrarDano(alvo, dano, seAtacou);
 	}
 
 	@Override
 	public void anunciarMorteDeCriatura(Creature alvo) {
-		// TODO Auto-generated method stub
-		
+		portGUI.anunciarMorteDeCriatura(alvo);
 	}
 
 	@Override
 	public void anunciarUsoDeMagia(Creature caster, Spell magia, Creature alvo,
 			byte dano, Status status) {
-		// TODO Auto-generated method stub
-		
+		portGUI.anunciarUsoDeMagia(caster, magia, alvo, dano, status);
 	}
 
 	@Override
 	public void anunciarMorteDesafortunada(Creature criatura) {
-		// TODO Auto-generated method stub
-		
+		portGUI.anunciarMorteDesafortunada(criatura);
 	}
 
 	@Override
 	public void atualizarArredoresJogador() {
-		// TODO Auto-generated method stub
-		
+		portGUI.atualizarArredoresJogador();
 	}
 
 	@Override
 	public int escolherPorta(ArrayList<String> portaIds) {
-		// TODO Auto-generated method stub
-		return 0;
+		return portGUI.escolherPorta(portaIds);
 	}
 
 	@Override
 	public void mostrarRemocaoTrap() {
-		// TODO Auto-generated method stub
-		
+		portGUI.mostrarRemocaoTrap();
 	}
 
 	@Override
 	public byte mostrarOpcoesFallingRock() {
-		// TODO Auto-generated method stub
-		return 0;
+		return portGUI.mostrarOpcoesFallingRock();
 	}
 
 	@Override
 	public byte mostrarOpcoesPit() {
-		// TODO Auto-generated method stub
-		return 0;
+		return portGUI.mostrarOpcoesPit();
 	}
 
 }

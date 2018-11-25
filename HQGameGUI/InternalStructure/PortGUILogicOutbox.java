@@ -10,125 +10,107 @@ import InterfaceParts.InterfaceLogicGUI;
 import cip.StandardPortOutbox;
 
 public class PortGUILogicOutbox extends StandardPortOutbox implements InterfaceLogicGUI {
+	
+	public PortLogicGUI portLogic;
 
 	@Override
 	public void abrirPorta(int id) {
-		// TODO Auto-generated method stub
-		
+		portLogic.abrirPorta(id);
 	}
 
 	@Override
 	public void abrirPortaTeclado() {
-		// TODO Auto-generated method stub
-		
+		portLogic.abrirPortaTeclado();
 	}
 
 	@Override
 	public void movimentar(Directions direcao) {
-		// TODO Auto-generated method stub
-		
+		portLogic.movimentar(direcao);
 	}
 
 	@Override
 	public Creature getCriaturaDaVez() {
-		// TODO Auto-generated method stub
-		return null;
+		return portLogic.getCriaturaDaVez();
 	}
 
 	@Override
 	public void atacar() {
-		// TODO Auto-generated method stub
-		
+		portLogic.atacar();
 	}
 
 	@Override
 	public void usarMagia() {
-		// TODO Auto-generated method stub
-		
+		portLogic.usarMagia();
 	}
 
 	@Override
 	public ArrayList<Creature> getCreatureQueue() {
-		// TODO Auto-generated method stub
-		return null;
+		return portLogic.getCreatureQueue();
 	}
 
 	@Override
 	public void procurarTesouro() {
-		// TODO Auto-generated method stub
-		
+		portLogic.procurarTesouro();
 	}
 
 	@Override
 	public void selecionarPersonagem() {
-		// TODO Auto-generated method stub
-		
+		portLogic.selecionarPersonagem();
 	}
 
 	@Override
 	public void selecionarPersonagemEscolhida(int resultado) {
-		// TODO Auto-generated method stub
-		
+		portLogic.selecionarPersonagemEscolhida(resultado);
 	}
 
 	@Override
 	public void procurarArmadilhaOuPortaSecreta() {
-		// TODO Auto-generated method stub
-		
+		portLogic.procurarArmadilhaOuPortaSecreta();
 	}
 
 	@Override
 	public void finalizarjogada() {
-		// TODO Auto-generated method stub
-		
+		portLogic.finalizarjogada();
 	}
 
 	@Override
 	public boolean informarConectado() {
-		// TODO Auto-generated method stub
-		return false;
+		return portLogic.informarConectado();
 	}
 
 	@Override
 	public void estabelecerConectado(boolean valor) {
-		// TODO Auto-generated method stub
-		
+		portLogic.estabelecerConectado(valor);
 	}
 
 	@Override
 	public boolean informarEmAndamento() {
-		// TODO Auto-generated method stub
-		return false;
+		return portLogic.informarEmAndamento();
 	}
 
 	@Override
 	public void mostrarInventario() {
-		// TODO Auto-generated method stub
-		
+		portLogic.mostrarInventario();
 	}
 
 	@Override
 	public void mostrarInformacoes(int creatureID) {
-		// TODO Auto-generated method stub
-		
+		portLogic.mostrarInformacoes(creatureID);
 	}
 
 	@Override
 	public Position getPosition(byte i, byte j) {
-		// TODO Auto-generated method stub
-		return null;
+		return portLogic.getPosition(i, j);
 	}
 
 	@Override
 	public void setNomeLocalPlayerAndServer(String idUsuario, String idServer) {
-		// TODO Auto-generated method stub
-		
+		portLogic.setNomeLocalPlayerAndServer(idUsuario, idServer);
 	}
 
 	@Override
 	public AtorClientServer getAtorClienteServidor() {
-		// TODO Auto-generated method stub
-		return null;
+		return portLogic.getAtorClienteServidor();
 	}
 
 	@Override

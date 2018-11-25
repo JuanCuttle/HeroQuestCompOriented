@@ -1,9 +1,12 @@
 package InternalStructure;
 
+import visao.AtorClientServer;
 import cip.InterfacePort;
 import InterfaceParts.NetgamesProxyInterface;
 
-public class PortNGProxyGUI extends InterfacePort implements NetgamesProxyInterface{
+public class PortNGProxyGUI extends InterfacePort implements NetgamesProxyInterface {
+	
+	private AtorClientServer internalStructure;
 
 	@Override
 	public void initialize() {
@@ -13,20 +16,17 @@ public class PortNGProxyGUI extends InterfacePort implements NetgamesProxyInterf
 	
 	@Override
 	public boolean conectar(String servidor, String nome) {
-		// TODO Auto-generated method stub
-		return false;
+		return internalStructure.conectar(servidor, nome);
 	}
 
 	@Override
 	public boolean desconectar() {
-		// TODO Auto-generated method stub
-		return false;
+		return internalStructure.desconectar();
 	}
 
 	@Override
 	public void iniciarPartida(int numJog) {
-		// TODO Auto-generated method stub
-		
+		internalStructure.iniciarPartida(numJog);
 	}
 
 }

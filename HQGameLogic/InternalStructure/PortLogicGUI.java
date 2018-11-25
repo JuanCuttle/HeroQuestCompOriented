@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import cip.InterfacePort;
 import modelo.Creature;
 import modelo.Directions;
+import modelo.HeroQuest;
 import modelo.Position;
 import visao.AtorClientServer;
 import InterfaceParts.InterfaceLogicGUI;
@@ -12,7 +13,7 @@ import InterfaceParts.InterfaceLogicGUI;
 public class PortLogicGUI extends InterfacePort implements InterfaceLogicGUI {
 	
 	private PortLogicGUIOutbox outbox;
-
+	private HeroQuest internalStructure;
 	
 	@Override
 	public void initialize() {
@@ -22,122 +23,102 @@ public class PortLogicGUI extends InterfacePort implements InterfaceLogicGUI {
 	
 	@Override
 	public void abrirPorta(int id) {
-		// TODO Auto-generated method stub
-		
+		internalStructure.abrirPorta(id);
 	}
 
 	@Override
 	public void abrirPortaTeclado() {
-		// TODO Auto-generated method stub
-		
+		internalStructure.abrirPortaTeclado();
 	}
 
 	@Override
 	public void movimentar(Directions direcao) {
-		// TODO Auto-generated method stub
-		
+		internalStructure.movimentar(direcao);
 	}
 
 	@Override
 	public Creature getCriaturaDaVez() {
-		// TODO Auto-generated method stub
-		return null;
+		return internalStructure.getCriaturaDaVez();
 	}
 
 	@Override
 	public void atacar() {
-		// TODO Auto-generated method stub
-		
+		internalStructure.atacar();
 	}
 
 	@Override
 	public void usarMagia() {
-		// TODO Auto-generated method stub
-		
+		internalStructure.usarMagia();
 	}
 
 	@Override
 	public ArrayList<Creature> getCreatureQueue() {
-		// TODO Auto-generated method stub
-		return null;
+		return internalStructure.getCreatureQueue();
 	}
 
 	@Override
 	public void procurarTesouro() {
-		// TODO Auto-generated method stub
-		
+		internalStructure.procurarTesouro();
 	}
 
 	@Override
 	public void selecionarPersonagem() {
-		// TODO Auto-generated method stub
-		
+		internalStructure.selecionarPersonagem();
 	}
 
 	@Override
 	public void selecionarPersonagemEscolhida(int resultado) {
-		// TODO Auto-generated method stub
-		
+		internalStructure.selecionarPersonagemEscolhida(resultado);
 	}
 
 	@Override
 	public void procurarArmadilhaOuPortaSecreta() {
-		// TODO Auto-generated method stub
-		
+		internalStructure.procurarArmadilhaOuPortaSecreta();
 	}
 
 	@Override
 	public void finalizarjogada() {
-		// TODO Auto-generated method stub
-		
+		internalStructure.finalizarJogada();
 	}
 
 	@Override
 	public boolean informarConectado() {
-		// TODO Auto-generated method stub
-		return false;
+		return internalStructure.informarConectado();
 	}
 
 	@Override
 	public void estabelecerConectado(boolean valor) {
-		// TODO Auto-generated method stub
-		
+		internalStructure.estabelecerConectado(valor);
 	}
 
 	@Override
 	public boolean informarEmAndamento() {
-		// TODO Auto-generated method stub
-		return false;
+		return internalStructure.informarEmAndamento();
 	}
 
 	@Override
 	public void mostrarInventario() {
-		// TODO Auto-generated method stub
-		
+		internalStructure.mostrarInventario();
 	}
 
 	@Override
 	public void mostrarInformacoes(int creatureID) {
-		// TODO Auto-generated method stub
-		
+		internalStructure.mostrarInformacoes(creatureID);
 	}
 
 	@Override
 	public Position getPosition(byte i, byte j) {
-		// TODO Auto-generated method stub
-		return null;
+		return internalStructure.getPosition(i, j);
 	}
 
 	@Override
 	public void setNomeLocalPlayerAndServer(String idUsuario, String idServer) {
-		// TODO Auto-generated method stub
-		
+		internalStructure.setNomeLocalPlayerAndServer(idUsuario, idServer);
 	}
 
 	@Override
 	public AtorClientServer getAtorClienteServidor() {
-		// TODO Auto-generated method stub
-		return null;
+		return internalStructure.getAtorClienteServidor();
 	}
 
 	@Override

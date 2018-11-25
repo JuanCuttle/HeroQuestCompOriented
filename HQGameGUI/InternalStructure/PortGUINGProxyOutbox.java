@@ -4,23 +4,22 @@ import InterfaceParts.NetgamesProxyInterface;
 import cip.StandardPortOutbox;
 
 public class PortGUINGProxyOutbox extends StandardPortOutbox implements NetgamesProxyInterface {
+	
+	public PortNGProxyGUI portProxy;
 
 	@Override
 	public boolean conectar(String servidor, String nome) {
-		// TODO Auto-generated method stub
-		return false;
+		return portProxy.conectar(servidor, nome);
 	}
 
 	@Override
 	public boolean desconectar() {
-		// TODO Auto-generated method stub
-		return false;
+		return portProxy.desconectar();
 	}
 
 	@Override
 	public void iniciarPartida(int numJog) {
-		// TODO Auto-generated method stub
-		
+		portProxy.iniciarPartida(numJog);
 	}
 
 }
