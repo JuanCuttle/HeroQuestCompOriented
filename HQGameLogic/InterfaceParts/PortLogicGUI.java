@@ -14,6 +14,10 @@ public class PortLogicGUI extends InterfacePort implements InterfaceLogicGUI {
 	private PortLogicGUIOutbox outbox;
 	private HeroQuest internalStructure;
 	
+	public PortLogicGUI(String name) {
+		id = name;
+	}
+	
 	@Override
 	public void initialize() {
 		// TODO Auto-generated method stub

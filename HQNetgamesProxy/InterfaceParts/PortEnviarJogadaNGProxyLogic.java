@@ -9,6 +9,10 @@ public class PortEnviarJogadaNGProxyLogic extends InterfacePort implements Envia
 	private PortEnviarJogadaNGProxyLogicOutbox outbox;
 	private AtorClientServer internalStructure;
 	
+	public PortEnviarJogadaNGProxyLogic(String name) {
+		id = name;
+	}
+	
 	@Override
 	public void initialize() {
 		// TODO Auto-generated method stub

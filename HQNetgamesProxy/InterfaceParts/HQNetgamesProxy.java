@@ -1,8 +1,5 @@
-package InternalStructure;
+package InterfaceParts;
 
-import InterfaceParts.PortEnviarJogadaNGProxyLogic;
-import InterfaceParts.PortNGProxyGUI;
-import InterfaceParts.PortNGProxyNGServer;
 import cip.ComponentInterface;
 import cip.InterfacePort;
 
@@ -15,13 +12,13 @@ public class HQNetgamesProxy extends ComponentInterface{
 	@Override
 	public void initialize() {
 		// TODO Auto-generated method stub
-		portGUI = new PortNGProxyGUI();
+		portGUI = new PortNGProxyGUI("portGUI");
 		portGUI.initialize();
 		
-		portNG = new PortNGProxyNGServer();
+		portNG = new PortNGProxyNGServer("portNG");
 		portNG.initialize();
 		
-		portLogic = new PortEnviarJogadaNGProxyLogic();
+		portLogic = new PortEnviarJogadaNGProxyLogic("portLogic");
 		portLogic.initialize();
 		
 		add(portGUI);

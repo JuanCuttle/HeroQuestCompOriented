@@ -13,6 +13,10 @@ public class PortGUILogic extends InterfacePort implements InterfaceGUI {
 	private PortGUILogicOutbox outbox;
 	private AtorJogador internalStructure;
 	
+	public PortGUILogic(String name) {
+		id = name;
+	}
+	
 	@Override
 	public void initialize() {
 		// TODO Auto-generated method stub

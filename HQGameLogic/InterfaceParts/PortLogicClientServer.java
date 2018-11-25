@@ -9,6 +9,10 @@ public class PortLogicClientServer extends InterfacePort implements InterfaceLog
 	private PortEnviarJogadaLogicNGProxyOutbox outbox;
 	private HeroQuest internalStructure;
 	
+	public PortLogicClientServer(String name) {
+		id = name;
+	}
+	
 	@Override
 	public void initialize() {
 		// TODO Auto-generated method stub

@@ -1,7 +1,5 @@
-package InternalStructure;
+package InterfaceParts;
 
-import InterfaceParts.PortLogicClientServer;
-import InterfaceParts.PortLogicGUI;
 import cip.ComponentInterface;
 import cip.InterfacePort;
 
@@ -13,9 +11,9 @@ public class HQGameLogic extends ComponentInterface {
 	@Override
 	public void initialize() {
 		// TODO Auto-generated method stub
-		portGUI = new PortLogicGUI();
+		portGUI = new PortLogicGUI("portGUI");
 		portGUI.initialize();
-		portProxy = new PortLogicClientServer();
+		portProxy = new PortLogicClientServer("portProxy");
 		portProxy.initialize();
 		
 		add(portGUI);

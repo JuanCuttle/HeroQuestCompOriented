@@ -58,3 +58,5 @@ Can be troublesome with Creature objects (change not made through ID)
 			   Modify internal code and implement initialize() methods
 			   
 23) Initialize methods implemented
+
+24) Initial main method implemented, components appear to have been connected

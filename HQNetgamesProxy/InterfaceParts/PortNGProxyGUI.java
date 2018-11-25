@@ -6,6 +6,10 @@ import cip.InterfacePort;
 public class PortNGProxyGUI extends InterfacePort implements NetgamesProxyInterface {
 	
 	private AtorClientServer internalStructure;
+	
+	public PortNGProxyGUI(String name) {
+		id = name;
+	}
 
 	@Override
 	public void initialize() {
