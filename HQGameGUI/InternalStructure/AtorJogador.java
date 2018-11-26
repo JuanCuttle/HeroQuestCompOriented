@@ -2,6 +2,8 @@ package InternalStructure;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.TextArea;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -51,8 +53,9 @@ public class AtorJogador extends JFrame {
 
 	public ListenerDoTeclado listener = new ListenerDoTeclado(this);
 	public MusicThread musicThread;
+	private TextArea textArea;
 
-	public static Boolean autoConnectToServer = false;
+	public static Boolean autoConnectToServer = true;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -184,123 +187,136 @@ public class AtorJogador extends JFrame {
 			this.contentPane.add(botao);
 		}
 
+		this.textArea = new TextArea();
+		textArea.setFont(new Font("Viner Hand ITC", Font.BOLD, 15));
+		textArea.setBounds(0, 0, 1294, 89);
+		contentPane.add(textArea);
+		
+		if (autoConnectToServer) {
+			this.conectar();
+		}
+	}
+	
+	@SuppressWarnings("unused")
+	private void generateActionbuttons(){
+		Border invisivel = BorderFactory.createEmptyBorder();
 		// Cria os outros botÃµes
-		ImageIcon iconeConectar = new ImageIcon(getClass().getResource(
-				"/imagens/BotaoConectar.png"));
-		this.botaoConectar = new JButton(iconeConectar);
-		this.botaoConectar.setBounds(22 * 1 + 120 * 0, 0, 120, 89);
-		this.botaoConectar.setBorder(invisivel);
-		this.botaoConectar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				conectar();
-			}
-		});
-		this.botaoConectar.addKeyListener(listener);
-		this.contentPane.add(this.botaoConectar);
+				ImageIcon iconeConectar = new ImageIcon(getClass().getResource(
+						"/imagens/BotaoConectar.png"));
+				this.botaoConectar = new JButton(iconeConectar);
+				this.botaoConectar.setBounds(22 * 1 + 120 * 0, 0, 120, 89);
+				this.botaoConectar.setBorder(invisivel);
+				this.botaoConectar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						conectar();
+					}
+				});
+				this.botaoConectar.addKeyListener(listener);
+				this.contentPane.add(this.botaoConectar);
 
-		ImageIcon iconeDesconectar = new ImageIcon(getClass().getResource(
-				"/imagens/BotaoDesconectar.png"));
-		this.botaoDesconectar = new JButton(iconeDesconectar);
-		this.botaoDesconectar.setBounds(22 * 2 + 120 * 1, 0, 120, 89);
-		this.botaoDesconectar.setBorder(invisivel);
-		this.botaoDesconectar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				desconectar();
-			}
-		});
-		this.botaoDesconectar.addKeyListener(listener);
-		this.contentPane.add(this.botaoDesconectar);
+				ImageIcon iconeDesconectar = new ImageIcon(getClass().getResource(
+						"/imagens/BotaoDesconectar.png"));
+				this.botaoDesconectar = new JButton(iconeDesconectar);
+				this.botaoDesconectar.setBounds(22 * 2 + 120 * 1, 0, 120, 89);
+				this.botaoDesconectar.setBorder(invisivel);
+				this.botaoDesconectar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						desconectar();
+					}
+				});
+				this.botaoDesconectar.addKeyListener(listener);
+				this.contentPane.add(this.botaoDesconectar);
 
-		ImageIcon iconeIniciarPartida = new ImageIcon(getClass().getResource(
-				"/imagens/BotaoIniciarPartida.png"));
-		this.botaoIniciarPartida = new JButton(iconeIniciarPartida);
-		this.botaoIniciarPartida.setBounds(22 * 3 + 120 * 2, 0, 120, 89);
-		this.botaoIniciarPartida.setBorder(invisivel);
-		this.botaoIniciarPartida.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				iniciarPartida();
-			}
-		});
-		this.botaoIniciarPartida.addKeyListener(listener);
-		this.contentPane.add(this.botaoIniciarPartida);
+				ImageIcon iconeIniciarPartida = new ImageIcon(getClass().getResource(
+						"/imagens/BotaoIniciarPartida.png"));
+				this.botaoIniciarPartida = new JButton(iconeIniciarPartida);
+				this.botaoIniciarPartida.setBounds(22 * 3 + 120 * 2, 0, 120, 89);
+				this.botaoIniciarPartida.setBorder(invisivel);
+				this.botaoIniciarPartida.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						iniciarPartida();
+					}
+				});
+				this.botaoIniciarPartida.addKeyListener(listener);
+				this.contentPane.add(this.botaoIniciarPartida);
 
-		ImageIcon iconeFinalizarJogada = new ImageIcon(getClass().getResource(
-				"/imagens/BotaoFinalizarJogada.png"));
-		this.botaoFinalizarJogada = new JButton(iconeFinalizarJogada);
-		this.botaoFinalizarJogada.setBounds(22 * 4 + 120 * 3, 0, 120, 89);
-		this.botaoFinalizarJogada.setBorder(invisivel);
-		this.botaoFinalizarJogada.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				finalizarJogada();
-			}
-		});
-		this.botaoFinalizarJogada.addKeyListener(listener);
-		this.contentPane.add(this.botaoFinalizarJogada);
+				ImageIcon iconeFinalizarJogada = new ImageIcon(getClass().getResource(
+						"/imagens/BotaoFinalizarJogada.png"));
+				this.botaoFinalizarJogada = new JButton(iconeFinalizarJogada);
+				this.botaoFinalizarJogada.setBounds(22 * 4 + 120 * 3, 0, 120, 89);
+				this.botaoFinalizarJogada.setBorder(invisivel);
+				this.botaoFinalizarJogada.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						finalizarJogada();
+					}
+				});
+				this.botaoFinalizarJogada.addKeyListener(listener);
+				this.contentPane.add(this.botaoFinalizarJogada);
 
-		ImageIcon iconeBotaoMostrarInventario = new ImageIcon(getClass()
-				.getResource("/imagens/BotaoMostrarInventario.png"));
-		this.botaoMostrarInventario = new JButton(iconeBotaoMostrarInventario);
-		this.botaoMostrarInventario.setBounds(22 * 5 + 120 * 4, 0, 120, 89);
-		this.botaoMostrarInventario.setBorder(invisivel);
-		this.botaoMostrarInventario.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				mostrarInventario();
-			}
-		});
-		this.botaoMostrarInventario.addKeyListener(listener);
-		this.contentPane.add(this.botaoMostrarInventario);
+				ImageIcon iconeBotaoMostrarInventario = new ImageIcon(getClass()
+						.getResource("/imagens/BotaoMostrarInventario.png"));
+				this.botaoMostrarInventario = new JButton(iconeBotaoMostrarInventario);
+				this.botaoMostrarInventario.setBounds(22 * 5 + 120 * 4, 0, 120, 89);
+				this.botaoMostrarInventario.setBorder(invisivel);
+				this.botaoMostrarInventario.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						mostrarInventario();
+					}
+				});
+				this.botaoMostrarInventario.addKeyListener(listener);
+				this.contentPane.add(this.botaoMostrarInventario);
 
-		ImageIcon iconeBotaoAtacar = new ImageIcon(getClass().getResource(
-				"/imagens/BotaoAtacar.png"));
-		this.botaoAtacar = new JButton(iconeBotaoAtacar);
-		this.botaoAtacar.setBounds(22 * 6 + 120 * 5, 0, 120, 89);
-		this.botaoAtacar.setBorder(invisivel);
-		this.botaoAtacar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				atacar();
-			}
-		});
-		this.botaoAtacar.addKeyListener(listener);
-		this.contentPane.add(this.botaoAtacar);
+				ImageIcon iconeBotaoAtacar = new ImageIcon(getClass().getResource(
+						"/imagens/BotaoAtacar.png"));
+				this.botaoAtacar = new JButton(iconeBotaoAtacar);
+				this.botaoAtacar.setBounds(22 * 6 + 120 * 5, 0, 120, 89);
+				this.botaoAtacar.setBorder(invisivel);
+				this.botaoAtacar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						atacar();
+					}
+				});
+				this.botaoAtacar.addKeyListener(listener);
+				this.contentPane.add(this.botaoAtacar);
 
-		ImageIcon iconeBotaoUsarMagia = new ImageIcon(getClass().getResource(
-				"/imagens/BotaoUsarMagia.png"));
-		this.botaoUsarMagia = new JButton(iconeBotaoUsarMagia);
-		this.botaoUsarMagia.setBounds(22 * 7 + 120 * 6, 0, 120, 89);
-		this.botaoUsarMagia.setBorder(invisivel);
-		this.botaoUsarMagia.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				usarMagia();
-			}
-		});
-		this.botaoUsarMagia.addKeyListener(listener);
-		this.contentPane.add(this.botaoUsarMagia);
+				ImageIcon iconeBotaoUsarMagia = new ImageIcon(getClass().getResource(
+						"/imagens/BotaoUsarMagia.png"));
+				this.botaoUsarMagia = new JButton(iconeBotaoUsarMagia);
+				this.botaoUsarMagia.setBounds(22 * 7 + 120 * 6, 0, 120, 89);
+				this.botaoUsarMagia.setBorder(invisivel);
+				this.botaoUsarMagia.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						usarMagia();
+					}
+				});
+				this.botaoUsarMagia.addKeyListener(listener);
+				this.contentPane.add(this.botaoUsarMagia);
 
-		ImageIcon iconeBotaoProcurarArmadilha = new ImageIcon(getClass()
-				.getResource("/imagens/BotaoProcurarArmadilha.png"));
-		this.botaoProcurarArmadilha = new JButton(iconeBotaoProcurarArmadilha);
-		this.botaoProcurarArmadilha.setBounds(22 * 8 + 120 * 7, 0, 120, 89);
-		this.botaoProcurarArmadilha.setBorder(invisivel);
-		this.botaoProcurarArmadilha.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				procurarArmadilhaOuPortaSecreta();
-			}
-		});
-		this.botaoProcurarArmadilha.addKeyListener(listener);
-		this.contentPane.add(botaoProcurarArmadilha);
+				ImageIcon iconeBotaoProcurarArmadilha = new ImageIcon(getClass()
+						.getResource("/imagens/BotaoProcurarArmadilha.png"));
+				this.botaoProcurarArmadilha = new JButton(iconeBotaoProcurarArmadilha);
+				this.botaoProcurarArmadilha.setBounds(22 * 8 + 120 * 7, 0, 120, 89);
+				this.botaoProcurarArmadilha.setBorder(invisivel);
+				this.botaoProcurarArmadilha.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						procurarArmadilhaOuPortaSecreta();
+					}
+				});
+				this.botaoProcurarArmadilha.addKeyListener(listener);
+				this.contentPane.add(botaoProcurarArmadilha);
 
-		ImageIcon iconeBotaoProcurarTesouro = new ImageIcon(getClass()
-				.getResource("/imagens/BotaoProcurarTesouro.png"));
-		this.botaoProcurarTesouro = new JButton(iconeBotaoProcurarTesouro);
-		this.botaoProcurarTesouro.setBounds(22 * 9 + 120 * 8, 0, 120, 89);
-		this.botaoProcurarTesouro.setBorder(invisivel);
-		this.botaoProcurarTesouro.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				procurarTesouro();
-			}
-		});
-		this.botaoProcurarTesouro.addKeyListener(listener);
-		this.contentPane.add(this.botaoProcurarTesouro);
+				ImageIcon iconeBotaoProcurarTesouro = new ImageIcon(getClass()
+						.getResource("/imagens/BotaoProcurarTesouro.png"));
+				this.botaoProcurarTesouro = new JButton(iconeBotaoProcurarTesouro);
+				this.botaoProcurarTesouro.setBounds(22 * 9 + 120 * 8, 0, 120, 89);
+				this.botaoProcurarTesouro.setBorder(invisivel);
+				this.botaoProcurarTesouro.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						procurarTesouro();
+					}
+				});
+				this.botaoProcurarTesouro.addKeyListener(listener);
+				this.contentPane.add(this.botaoProcurarTesouro);
 	}
 
 	// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -318,11 +334,13 @@ public class AtorJogador extends JFrame {
 	}
 
 	public void mostrarMensagem(String msg) {
-		JOptionPane.showMessageDialog(null, msg);
+		//JOptionPane.showMessageDialog(null, msg);
+		textArea.setText(msg);
 	}
 
 	public void reportarErro(String msg) {
-		JOptionPane.showMessageDialog(null, msg);
+		//JOptionPane.showMessageDialog(null, msg);
+		textArea.setText(msg);
 	}
 
 	public void movimentar(Directions direcao) {
@@ -484,7 +502,8 @@ public class AtorJogador extends JFrame {
 			mensagem = "";
 			break;
 		}
-		JOptionPane.showMessageDialog(null, mensagem);
+		//JOptionPane.showMessageDialog(null, mensagem);
+		textArea.setText(mensagem);
 	}
 
 	public String obterDadosConexao() {
@@ -542,13 +561,15 @@ public class AtorJogador extends JFrame {
 	}
 
 	public void anunciarVitoriaDosJogadores() {
-		JOptionPane.showMessageDialog(null,
-				"Parabéns aos aventureiros!\n Vocês foram vitoriosos!!!");
+/*		JOptionPane.showMessageDialog(null,
+				"Parabéns aos aventureiros!\n Vocês foram vitoriosos!!!");*/
+		textArea.setText("Parabéns aos aventureiros!\n Vocês foram vitoriosos!!!");
 	}
 
 	public void anunciarVitoriaDoZargon() {
-		JOptionPane.showMessageDialog(null,
-				"Oh não, o terrível Zargon venceu desta vez!");
+/*		JOptionPane.showMessageDialog(null,
+				"Oh não, o terrível Zargon venceu desta vez!");*/
+		textArea.setText("Oh não, o terrível Zargon venceu desta vez!");
 	}
 
 	public String informarNomeJogador() {
@@ -562,7 +583,9 @@ public class AtorJogador extends JFrame {
 	}
 
 	public void mostrarInventario(int gold) {
-		JOptionPane.showMessageDialog(null, "Você possui " + gold
+		/*JOptionPane.showMessageDialog(null, "Você possui " + gold
+				+ " gold coins no seu inventário.");*/
+		textArea.setText("Você possui " + gold
 				+ " gold coins no seu inventário.");
 	}
 
@@ -581,7 +604,8 @@ public class AtorJogador extends JFrame {
 				output += "\nTurns left to sleep: " + roundsToSleep;
 			}
 		}
-		JOptionPane.showMessageDialog(null, output);
+		//JOptionPane.showMessageDialog(null, output);
+		textArea.setText(output);
 	}
 
 	public int informarQuantidadeDePlayers() {
@@ -679,8 +703,12 @@ public class AtorJogador extends JFrame {
 	}
 
 	public void mostrarAcaoTrap(byte dano, Creature criatura) {
-		JOptionPane
+/*		JOptionPane
 				.showMessageDialog(null, "Oh não! "
+						+ criatura.getClass().getSimpleName()
+						+ " ativou uma armadilha e perdeu " + dano
+						+ " de body points!");*/
+		textArea.setText("Oh não! "
 						+ criatura.getClass().getSimpleName()
 						+ " ativou uma armadilha e perdeu " + dano
 						+ " de body points!");
@@ -688,18 +716,27 @@ public class AtorJogador extends JFrame {
 
 	public void mostrarDano(Creature alvo, byte dano, boolean seAtacou) {
 		if (!seAtacou) {
-			JOptionPane.showMessageDialog(null, "A criatura "
+	/*		JOptionPane.showMessageDialog(null, "A criatura "
+					+ alvo.getClass().getSimpleName() + " recebeu " + dano
+					+ " de dano.");*/
+			textArea.setText("A criatura "
 					+ alvo.getClass().getSimpleName() + " recebeu " + dano
 					+ " de dano.");
 		} else {
-			JOptionPane.showMessageDialog(null, "A criatura "
+/*			JOptionPane.showMessageDialog(null, "A criatura "
+					+ alvo.getClass().getSimpleName()
+					+ " tenta seppuku e recebe " + dano + " de dano.");*/
+			textArea.setText("A criatura "
 					+ alvo.getClass().getSimpleName()
 					+ " tenta seppuku e recebe " + dano + " de dano.");
 		}
 	}
 
 	public void anunciarMorteDeCriatura(Creature alvo) {
-		JOptionPane.showMessageDialog(null, "A criatura "
+/*		JOptionPane.showMessageDialog(null, "A criatura "
+				+ alvo.getClass().getSimpleName()
+				+ " morreu honrosamente em batalha.");*/
+		textArea.setText("A criatura "
 				+ alvo.getClass().getSimpleName()
 				+ " morreu honrosamente em batalha.");
 	}
@@ -707,7 +744,14 @@ public class AtorJogador extends JFrame {
 	public void anunciarUsoDeMagia(Creature caster, Spell magia, Creature alvo,
 			byte dano, Status status) {
 		if (status != null) {
-			JOptionPane.showMessageDialog(null, "O "
+/*			JOptionPane.showMessageDialog(null, "O "
+					+ caster.getClass().getSimpleName()
+					+ " murmurou algumas palavras mágicas (" + magia.getNome()
+					+ "), e a criatura " + alvo.getClass().getSimpleName()
+					+ " modificou em " + dano
+					+ " seus body points, e conferiu a ele o estado " + status
+					+ "!");*/
+			textArea.setText("O "
 					+ caster.getClass().getSimpleName()
 					+ " murmurou algumas palavras mágicas (" + magia.getNome()
 					+ "), e a criatura " + alvo.getClass().getSimpleName()
@@ -715,7 +759,12 @@ public class AtorJogador extends JFrame {
 					+ " seus body points, e conferiu a ele o estado " + status
 					+ "!");
 		} else {
-			JOptionPane.showMessageDialog(null, "O "
+/*			JOptionPane.showMessageDialog(null, "O "
+					+ caster.getClass().getSimpleName()
+					+ " murmurou algumas palavras mágicas (" + magia.getNome()
+					+ "), e a criatura " + alvo.getClass().getSimpleName()
+					+ " modificou em " + dano + " seus body points!");*/
+			textArea.setText("O "
 					+ caster.getClass().getSimpleName()
 					+ " murmurou algumas palavras mágicas (" + magia.getNome()
 					+ "), e a criatura " + alvo.getClass().getSimpleName()
@@ -725,7 +774,10 @@ public class AtorJogador extends JFrame {
 	}
 
 	public void anunciarMorteDesafortunada(Creature criatura) {
-		JOptionPane.showMessageDialog(null, "Oh não! A criatura "
+/*		JOptionPane.showMessageDialog(null, "Oh não! A criatura "
+				+ criatura.getClass().getSimpleName()
+				+ " morreu ao pisar numa armadilha!");*/
+		textArea.setText("Oh não! A criatura "
 				+ criatura.getClass().getSimpleName()
 				+ " morreu ao pisar numa armadilha!");
 	}
@@ -734,7 +786,11 @@ public class AtorJogador extends JFrame {
 		Position posicaoCriatura = criatura.getCurrentPosition();
 		int linha = posicaoCriatura.getRow();
 		int coluna = posicaoCriatura.getColumn();
-		JOptionPane.showMessageDialog(null, "A vez é da criatura "
+/*		JOptionPane.showMessageDialog(null, "A vez é da criatura "
+				+ criatura.getClass().getSimpleName()
+				+ " a qual está na linha " + linha + ", coluna " + coluna
+				+ " do tabuleiro.");*/
+		textArea.setText("A vez é da criatura "
 				+ criatura.getClass().getSimpleName()
 				+ " a qual está na linha " + linha + ", coluna " + coluna
 				+ " do tabuleiro.");
@@ -806,7 +862,8 @@ public class AtorJogador extends JFrame {
 	}
 
 	public void mostrarRemocaoTrap() {
-		JOptionPane.showMessageDialog(null, "O anão desarmou as armadilhas próximas a ele!");
+		//JOptionPane.showMessageDialog(null, "O anão desarmou as armadilhas próximas a ele!");
+		textArea.setText("O anão desarmou as armadilhas próximas a ele!");
 	}
 
 	public byte mostrarOpcoesFallingRock() {

@@ -804,7 +804,7 @@ public class HeroQuest {
 			}
 		}
 		if (foundGold){
-			JOptionPane.showMessageDialog(null, "O jogador "
+			atorJogador.mostrarMensagem("O jogador "
 					+ character.getClass().getSimpleName()
 					+ " encontrou algumas moedas de ouro.");
 		}
