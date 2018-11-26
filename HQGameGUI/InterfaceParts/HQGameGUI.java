@@ -3,7 +3,6 @@ package InterfaceParts;
 import InternalStructure.AtorJogador;
 import cip.ComponentInterface;
 import cip.InterfacePort;
-import cip.PortOutbox;
 
 public class HQGameGUI extends ComponentInterface {
 	
@@ -38,13 +37,8 @@ public class HQGameGUI extends ComponentInterface {
 	}
 	
 	public void initGUI(){
-		PortOutbox l = portLogic.getOutbox();
-		PortOutbox p = portProxy.getOutbox();
-/*		System.out.println(l);
-		System.out.println(p);*/
-		frame = new AtorJogador(l, p);
+		frame = new AtorJogador(portLogic.getOutbox(), portProxy.getOutbox());
 		frame.setVisible(true);
-		
 		((PortGUILogic) portLogic).setInternalReference(frame);
 	}
 }

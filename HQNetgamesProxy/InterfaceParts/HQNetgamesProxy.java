@@ -1,5 +1,6 @@
 package InterfaceParts;
 
+import InternalStructure.AtorClientServer;
 import cip.ComponentInterface;
 import cip.InterfacePort;
 
@@ -34,5 +35,11 @@ public class HQNetgamesProxy extends ComponentInterface{
 	public void add(InterfacePort port){
 		ports.add(port);
 	}
+	
+/*	public void initProxy(AtorClientServer proxy){
+		((PortNGProxyGUI) portGUI).setInternalReference(proxy);
+		((PortEnviarJogadaNGProxyLogic) portLogic).setInternalReference(proxy);
+		((PortNGProxyNGServer) portNG).setInternalReference(proxy);
+	}*/
 
 }

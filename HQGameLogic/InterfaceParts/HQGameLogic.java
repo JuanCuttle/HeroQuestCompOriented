@@ -1,5 +1,6 @@
 package InterfaceParts;
 
+import InternalStructure.HeroQuest;
 import cip.ComponentInterface;
 import cip.InterfacePort;
 
@@ -28,5 +29,10 @@ public class HQGameLogic extends ComponentInterface {
 	public void add(InterfacePort port){
 		ports.add(port);
 	}
+
+/*	public void initLogic(HeroQuest game){
+		((PortLogicGUI) portGUI).setInternalReference(game);
+		((PortLogicClientServer) portProxy).setInternalReference(game);
+	}*/
 
 }

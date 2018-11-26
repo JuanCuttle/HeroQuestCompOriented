@@ -86,14 +86,20 @@ public class HeroQuestCompOriented {
 		gui.connect(proxyGUI, "portProxy");
 		proxy.connect(guiProxy, "portGUI");
 		
+		// Create basic game classes
+		//AtorJogador frame = new AtorJogador(portLogic.getOutbox(), guiProxy.getOutbox());
 		HeroQuest game = new HeroQuest(portGUI.getOutbox(), portProxy.getOutbox());
 		AtorClientServer ngproxy = new AtorClientServer(portProxyLogic.getOutbox());
+		
+		// Set internal references
 		((PortLogicGUI) portGUI).setInternalReference(game);
-		((PortNGProxyGUI) proxyGUI).setInternalReference(ngproxy);
 		((PortLogicClientServer) portProxy).setInternalReference(game);
+		
+		((PortNGProxyGUI) proxyGUI).setInternalReference(ngproxy);
 		((PortEnviarJogadaNGProxyLogic) portProxyLogic).setInternalReference(ngproxy);
 		((PortNGProxyNGServer) proxy.getPort("portNG")).setInternalReference(ngproxy);
 		
+		// Start game GUI
 		gui.initGUI();
 	}
 }
