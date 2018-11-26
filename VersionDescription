@@ -60,3 +60,5 @@ Can be troublesome with Creature objects (change not made through ID)
 23) Initialize methods implemented
 
 24) Initial main method implemented, components appear to have been connected
+
+25) Components properly connected, modifications to isolate components made, initial tests seem promising

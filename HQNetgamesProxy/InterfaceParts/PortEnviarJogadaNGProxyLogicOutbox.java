@@ -1,27 +1,31 @@
 package InterfaceParts;
 
-import modelo.Lance;
 import InterfaceParts.PortLogicClientServer;
+import InternalStructure.Lance;
+import cip.InterfacePort;
 import cip.StandardPortOutbox;
 
 public class PortEnviarJogadaNGProxyLogicOutbox extends StandardPortOutbox implements LogicInterfaceClientServer {
 	
-	public PortLogicClientServer portLogic;
+	//public PortLogicClientServer portLogic;
 
 	@Override
 	public void tratarLance(Lance lance) {
-		portLogic.tratarLance(lance);
+		((PortLogicClientServer) externalPort).tratarLance(lance);
 	}
 
 	@Override
 	public void finalizarJogo() {
-		portLogic.finalizarJogo();
+		((PortLogicClientServer) externalPort).finalizarJogo();
 	}
 
 	@Override
 	public void iniciarNovaPartida(int posicao) {
-		portLogic.iniciarNovaPartida(posicao);
+		((PortLogicClientServer) externalPort).iniciarNovaPartida(posicao);
 	}
 
+	public void connect(InterfacePort port){
+		externalPort = (PortLogicClientServer) port;
+	}
 	
 }

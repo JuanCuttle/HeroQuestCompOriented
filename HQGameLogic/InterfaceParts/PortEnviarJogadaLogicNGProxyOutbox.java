@@ -1,19 +1,22 @@
 package InterfaceParts;
 
-import modelo.Lance;
+import InternalStructure.Lance;
+import cip.InterfacePort;
 import cip.StandardPortOutbox;
 
 public class PortEnviarJogadaLogicNGProxyOutbox extends StandardPortOutbox {
 	
-	public PortEnviarJogadaNGProxyLogic portNGProxy;
+	//public PortEnviarJogadaNGProxyLogic portNGProxy;
 
 	public void enviarJogada(Lance lance){
-		portNGProxy.enviarJogada(lance);
+		((PortEnviarJogadaNGProxyLogic) externalPort).enviarJogada(lance);
 	}
 	
 	public void selfDestruct(){
 		
 	}
 	
-	
+	public void connect(InterfacePort port){
+		externalPort = (PortEnviarJogadaNGProxyLogic) port;
+	}
 }

@@ -2,10 +2,10 @@ package InterfaceParts;
 
 import java.util.ArrayList;
 
-import modelo.Creature;
-import modelo.Directions;
-import modelo.Position;
-import visao.AtorClientServer;
+import InternalStructure.AtorClientServer;
+import InternalStructure.Creature;
+import InternalStructure.Directions;
+import InternalStructure.Position;
 
 public interface InterfaceLogicGUI {
 	public void abrirPorta(int id);

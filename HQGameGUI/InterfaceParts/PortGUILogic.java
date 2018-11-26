@@ -2,16 +2,25 @@ package InterfaceParts;
 
 import java.util.ArrayList;
 
-import modelo.Creature;
-import modelo.Spell;
-import modelo.Status;
-import visao.AtorJogador;
+import InternalStructure.AtorJogador;
+import InternalStructure.Creature;
+import InternalStructure.Spell;
+import InternalStructure.Status;
 import cip.InterfacePort;
+import cip.PortOutbox;
 
 public class PortGUILogic extends InterfacePort implements InterfaceGUI {
 	
-	private PortGUILogicOutbox outbox;
+	//private PortGUILogicOutbox outbox;
 	private AtorJogador internalStructure;
+	
+	public void setInternalReference(AtorJogador gui){
+		internalStructure = gui;
+	}
+	
+	public PortOutbox getOutbox(){
+		return outbox;
+	}
 	
 	public PortGUILogic(String name) {
 		id = name;

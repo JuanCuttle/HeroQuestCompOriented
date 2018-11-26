@@ -1,13 +1,22 @@
 package InterfaceParts;
 
-import visao.AtorClientServer;
-import modelo.Lance;
+import InternalStructure.AtorClientServer;
+import InternalStructure.Lance;
 import cip.InterfacePort;
+import cip.PortOutbox;
 
 public class PortEnviarJogadaNGProxyLogic extends InterfacePort implements EnviarJogadaNGProxyInterface{
 
-	private PortEnviarJogadaNGProxyLogicOutbox outbox;
+	//private PortEnviarJogadaNGProxyLogicOutbox outbox;
 	private AtorClientServer internalStructure;
+	
+	public void setInternalReference(AtorClientServer proxy){
+		internalStructure = proxy;
+	}
+	
+	public PortOutbox getOutbox(){
+		return outbox;
+	}
 	
 	public PortEnviarJogadaNGProxyLogic(String name) {
 		id = name;

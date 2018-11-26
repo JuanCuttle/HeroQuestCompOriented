@@ -1,13 +1,22 @@
 package InterfaceParts;
 
-import modelo.HeroQuest;
-import modelo.Lance;
+import InternalStructure.HeroQuest;
+import InternalStructure.Lance;
 import cip.InterfacePort;
+import cip.PortOutbox;
 
 public class PortLogicClientServer extends InterfacePort implements InterfaceLogicClientServer {
 
-	private PortEnviarJogadaLogicNGProxyOutbox outbox;
+	//private PortEnviarJogadaLogicNGProxyOutbox outbox;
 	private HeroQuest internalStructure;
+	
+	public void setInternalReference(HeroQuest game){
+		internalStructure = game;
+	}
+	
+	public PortOutbox getOutbox(){
+		return outbox;
+	}
 	
 	public PortLogicClientServer(String name) {
 		id = name;

@@ -2,17 +2,26 @@ package InterfaceParts;
 
 import java.util.ArrayList;
 
+import InternalStructure.AtorClientServer;
+import InternalStructure.Creature;
+import InternalStructure.Directions;
+import InternalStructure.HeroQuest;
+import InternalStructure.Position;
 import cip.InterfacePort;
-import modelo.Creature;
-import modelo.Directions;
-import modelo.HeroQuest;
-import modelo.Position;
-import visao.AtorClientServer;
+import cip.PortOutbox;
 
 public class PortLogicGUI extends InterfacePort implements InterfaceLogicGUI {
 	
-	private PortLogicGUIOutbox outbox;
+	//private PortLogicGUIOutbox outbox;
 	private HeroQuest internalStructure;
+	
+	public void setInternalReference(HeroQuest game){
+		internalStructure = game;
+	}
+	
+	public PortOutbox getOutbox(){
+		return outbox;
+	}
 	
 	public PortLogicGUI(String name) {
 		id = name;

@@ -1,14 +1,20 @@
 package InterfaceParts;
 
-import visao.AtorJogador;
+import InternalStructure.AtorJogador;
 import cip.ComponentInterface;
 import cip.InterfacePort;
+import cip.PortOutbox;
 
 public class HQGameGUI extends ComponentInterface {
 	
 	private PortGUILogic portLogic;
 	private PortGUINGProxy portProxy;
 	private AtorJogador frame;
+	
+	public HQGameGUI(String name) {
+		// TODO Auto-generated constructor stub
+		id = name;
+	}
 
 	@Override
 	public void initialize() {
@@ -21,9 +27,6 @@ public class HQGameGUI extends ComponentInterface {
 		
 		add(portLogic);
 		add(portProxy);
-		
-		frame = new AtorJogador();
-		frame.setVisible(true);
 	}
 
 	public void add(InterfacePort port){
@@ -32,5 +35,16 @@ public class HQGameGUI extends ComponentInterface {
 	
 	public AtorJogador getFrame() {
 		return frame;
+	}
+	
+	public void initGUI(){
+		PortOutbox l = portLogic.getOutbox();
+		PortOutbox p = portProxy.getOutbox();
+/*		System.out.println(l);
+		System.out.println(p);*/
+		frame = new AtorJogador(l, p);
+		frame.setVisible(true);
+		
+		((PortGUILogic) portLogic).setInternalReference(frame);
 	}
 }

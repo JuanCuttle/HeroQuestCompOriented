@@ -1,13 +1,22 @@
 package InterfaceParts;
 
-import visao.AtorClientServer;
+import InternalStructure.AtorClientServer;
 import br.ufsc.inf.leobr.cliente.Jogada;
 import cip.InterfacePort;
+import cip.PortOutbox;
 
 public class PortNGProxyNGServer extends InterfacePort implements NetgamesProxyNGServer {
 
-	private PortNGProxyNGServerOutbox outbox;
+	//private PortNGProxyNGServerOutbox outbox;
 	private AtorClientServer internalStructure;
+	
+	public void setInternalReference(AtorClientServer proxy){
+		internalStructure = proxy;
+	}
+	
+	public PortOutbox getOutbox(){
+		return outbox;
+	}
 	
 	public PortNGProxyNGServer(String name) {
 		id = name;

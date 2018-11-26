@@ -1,6 +1,6 @@
 package InterfaceParts;
 
-import modelo.Lance;
+import InternalStructure.Lance;
 
 public interface LogicInterfaceClientServer {
 	public void tratarLance(Lance lance);

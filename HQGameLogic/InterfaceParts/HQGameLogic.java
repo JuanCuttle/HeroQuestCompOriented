@@ -7,6 +7,11 @@ public class HQGameLogic extends ComponentInterface {
 	
 	private PortLogicGUI portGUI;
 	private PortLogicClientServer portProxy;
+	
+	public HQGameLogic(String name) {
+		// TODO Auto-generated constructor stub
+		id = name;
+	}
 
 	@Override
 	public void initialize() {

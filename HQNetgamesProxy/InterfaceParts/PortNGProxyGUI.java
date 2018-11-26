@@ -1,11 +1,16 @@
 package InterfaceParts;
 
-import visao.AtorClientServer;
+import InternalStructure.AtorClientServer;
 import cip.InterfacePort;
+import cip.PortOutbox;
 
 public class PortNGProxyGUI extends InterfacePort implements NetgamesProxyInterface {
 	
 	private AtorClientServer internalStructure;
+	
+	public PortOutbox getOutbox(){
+		return outbox;
+	}
 	
 	public PortNGProxyGUI(String name) {
 		id = name;
@@ -30,6 +35,11 @@ public class PortNGProxyGUI extends InterfacePort implements NetgamesProxyInterf
 	@Override
 	public void iniciarPartida(int numJog) {
 		internalStructure.iniciarPartida(numJog);
+	}
+
+	public void setInternalReference(AtorClientServer atorClientServer) {
+		// TODO Auto-generated method stub
+		internalStructure = atorClientServer;
 	}
 
 }

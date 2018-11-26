@@ -2,9 +2,9 @@ package InterfaceParts;
 
 import java.util.ArrayList;
 
-import modelo.Creature;
-import modelo.Spell;
-import modelo.Status;
+import InternalStructure.Creature;
+import InternalStructure.Spell;
+import InternalStructure.Status;
 
 public interface InterfaceGUI {
 

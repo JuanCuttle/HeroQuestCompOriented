@@ -8,6 +8,11 @@ public class HQNetgamesProxy extends ComponentInterface{
 	private PortNGProxyGUI portGUI;
 	private PortNGProxyNGServer portNG;
 	private PortEnviarJogadaNGProxyLogic portLogic;
+	
+	public HQNetgamesProxy(String name) {
+		// TODO Auto-generated constructor stub
+		id = name;
+	}
 
 	@Override
 	public void initialize() {
