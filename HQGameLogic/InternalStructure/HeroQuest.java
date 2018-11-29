@@ -1467,9 +1467,8 @@ public class HeroQuest {
 
 	public void iniciarNovaPartida(int posicao) {
 		this.setEmAndamento(true);
-		System.out.println("Posicao "+posicao);
+		
 		this.map = new Map(this);
-		System.out.println(map);
 		//String idJogador = this.atorJogador.informarNomeJogador();
 		String idJogador = this.nomeLocalPlayer;
 		Player player = this.criarJogador(idJogador);
@@ -1585,7 +1584,7 @@ public class HeroQuest {
 	}
 
 	public void creatureInPosition(Creature creature, int row, int column) {
-		System.out.println(creature.getID()+", "+row+", "+column);
+		//System.out.println(creature.getID()+", "+row+", "+column);
 		this.map.positions[row][column].setCreature(creature);
 		creature.setCurrentPosition(this.map.positions[row][column]);
 	}

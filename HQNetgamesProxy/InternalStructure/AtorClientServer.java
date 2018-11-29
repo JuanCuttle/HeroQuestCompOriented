@@ -3,9 +3,9 @@ package InternalStructure;
 import javax.swing.JOptionPane;
 
 import InterfaceParts.PortEnviarJogadaNGProxyLogicOutbox;
+import InterfaceParts.PortNGProxyNGServerOutbox;
 import br.ufsc.inf.leobr.cliente.Jogada;
 import br.ufsc.inf.leobr.cliente.OuvidorProxy;
-import br.ufsc.inf.leobr.cliente.Proxy;
 import br.ufsc.inf.leobr.cliente.exception.ArquivoMultiplayerException;
 import br.ufsc.inf.leobr.cliente.exception.JahConectadoException;
 import br.ufsc.inf.leobr.cliente.exception.NaoConectadoException;
@@ -16,15 +16,20 @@ import cip.PortOutbox;
 public class AtorClientServer implements OuvidorProxy {
 
 	private static final long serialVersionUID = 1L;
-	protected Proxy proxy;
+	//protected Proxy proxy;
+	protected PortNGProxyNGServerOutbox proxy; // This outbox will call the server
+	
 	//protected HeroQuest heroQuest;
 	protected PortEnviarJogadaNGProxyLogicOutbox heroQuest;
 	
 
-	public AtorClientServer(PortOutbox game) {
-		proxy = Proxy.getInstance();
-		proxy.addOuvinte(this);
+	public AtorClientServer(PortOutbox server, PortOutbox game) {
+/*		proxy = Proxy.getInstance();
+		proxy.addOuvinte(this);*/
+		
 		//this.heroQuest = heroQuest;
+		
+		proxy = (PortNGProxyNGServerOutbox) server;
 		heroQuest = (PortEnviarJogadaNGProxyLogicOutbox) game;
 	}
 
@@ -65,7 +70,7 @@ public class AtorClientServer implements OuvidorProxy {
 
 	public void enviarJogada(Lance lance) {
 		try {
-			proxy.enviaJogada((Jogada) lance);
+			proxy.enviarJogada((Jogada) lance);
 		} catch (NaoJogandoException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 			e.printStackTrace();
@@ -74,7 +79,7 @@ public class AtorClientServer implements OuvidorProxy {
 	
 	public void enviarJogada(LanceAbrirPorta lance) {
 		try {
-			proxy.enviaJogada((Jogada) lance);
+			proxy.enviarJogada((Jogada) lance);
 		} catch (NaoJogandoException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 			e.printStackTrace();

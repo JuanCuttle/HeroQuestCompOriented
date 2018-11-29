@@ -1,7 +1,7 @@
 package InterfaceParts;
 
-import InternalStructure.AtorClientServer;
-import InternalStructure.Lance;
+import br.ufsc.inf.leobr.cliente.Jogada;
+import br.ufsc.inf.leobr.cliente.Proxy;
 import br.ufsc.inf.leobr.cliente.exception.ArquivoMultiplayerException;
 import br.ufsc.inf.leobr.cliente.exception.JahConectadoException;
 import br.ufsc.inf.leobr.cliente.exception.NaoConectadoException;
@@ -11,8 +11,13 @@ import cip.NonComponentPortOutbox;
 
 public class PortNGProxyNGServerOutbox extends NonComponentPortOutbox {
 	
-	public AtorClientServer proxy;
+	//public AtorClientServer internalStructure;
+	public Proxy proxy;
 	
+	
+	public PortNGProxyNGServerOutbox(){
+		proxy = Proxy.getInstance();
+	}
 	
 	public boolean conectar(String servidor, String nome) throws JahConectadoException, NaoPossivelConectarException, ArquivoMultiplayerException{
 		proxy.conectar(servidor, nome);
@@ -28,11 +33,16 @@ public class PortNGProxyNGServerOutbox extends NonComponentPortOutbox {
 		proxy.iniciarPartida(numJog);
 	}
 	
-	public void enviarJogada(Lance lance) throws NaoJogandoException{
-		proxy.enviarJogada(lance);
+	public void enviarJogada(Jogada jogada) throws NaoJogandoException{
+		proxy.enviaJogada(jogada);
 	}
 	
 	public void selfDestruct(){
 		
 	}
+	
+	public Proxy getProxy(){
+		return proxy;
+	}
+
 }

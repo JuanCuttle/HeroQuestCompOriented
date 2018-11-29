@@ -62,3 +62,6 @@ Can be troublesome with Creature objects (change not made through ID)
 24) Initial main method implemented, components appear to have been connected
 
 25) Components properly connected, modifications to isolate components made, initial tests seem promising
+
+26) Fully component oriented (PortNGProxyNGServer listens to network and calls internal structure, 
+	PortNGProxyNGServerOutbox calls NGServer).

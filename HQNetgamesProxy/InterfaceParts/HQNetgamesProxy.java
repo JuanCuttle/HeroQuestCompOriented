@@ -1,6 +1,5 @@
 package InterfaceParts;
 
-import InternalStructure.AtorClientServer;
 import cip.ComponentInterface;
 import cip.InterfacePort;
 
